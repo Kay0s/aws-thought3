@@ -38,7 +38,7 @@ router.get('/users/:username', (req, res) => {
     ExpressionAttributeValues: {
       ":user": req.params.username
     },
-    ProjectionExpression: "#th, #ca"
+    ProjectionExpression: "#th, #ca",
   };
 
   dynamodb.query(params, (err, data) => {
@@ -67,7 +67,7 @@ router.post('/users', (req, res) => {
       console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
       res.status(500).json(err); // an error occurred
     } else {
-      console.log("Added item:", JSON.stringify(data));
+      console.log("Added item:", JSON.stringify(data, null, 2));
       res.json({ "Added": JSON.stringify(data, null, 2) });
     }
   });

@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+require("dotenv").config();
 const PORT = process.env.PORT || 3001;
 const fileRoutes = require('./routes/file-upload');
 const userRoutes = require('./routes/user-routes');
